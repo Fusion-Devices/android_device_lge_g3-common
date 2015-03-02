@@ -126,6 +126,11 @@ static char *camera_fixup_getparams(int id, const char *settings)
     params.dump();
 #endif
 
+const char *videoSizesStr = params.get(android::CameraParameters::KEY_SUPPORTED_VIDEO_SIZES);
+    char tmpsz[strlen(videoSizesStr) + 10 + 1];
+    sprintf(tmpsz, "3840x2160,%s", videoSizesStr);
+    params.set(android::CameraParameters::KEY_SUPPORTED_VIDEO_SIZES, tmpsz);
+
     if (params.get(android::CameraParameters::KEY_RECORDING_HINT)) {
         videoMode = (!strcmp(params.get(android::CameraParameters::KEY_RECORDING_HINT), "true"));
     }
@@ -170,6 +175,12 @@ static char *camera_fixup_setparams(int id, const char *settings)
     ALOGV("%s: original parameters:", __FUNCTION__);
     params.dump();
 #endif
+
+if (!strncmp(params.get(android::CameraParameters::KEY_VIDEO_SIZE), "3840x2160", 9)) {
+        params.set(android::CameraParameters::KEY_LGE_CAMERA, "1");
+    } else {
+        params.set(android::CameraParameters::KEY_LGE_CAMERA, "0");
+    }
 
     if (params.get(android::CameraParameters::KEY_RECORDING_HINT)) {
         videoMode = (!strcmp(params.get(android::CameraParameters::KEY_RECORDING_HINT), "true"));
