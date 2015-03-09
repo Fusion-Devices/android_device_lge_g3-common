@@ -79,3 +79,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 #Wifi Hack
 net.tethering.noprovisioning=true
+
+# USB
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.isUsbOtgEnabled=true
