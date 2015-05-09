@@ -24,7 +24,7 @@
 
     <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
          autodetected from the Configuration. -->
-    <bool name="config_showNavigationBar">true</bool>
+    <bool name="config_showNavigationBar">false</bool>
 
     <!-- Flag indicating whether the we should enable the automatic brightness in Settings.
          Software implementation will be used if config_hardware_auto_brightness_available is not set -->
@@ -312,5 +312,8 @@
 
     <!-- Wether doze feature is enabled by default in settings. -->
     <bool name="config_dozeAfterScreenOff">true</bool>
+
+    <!-- Hardware keys enable/disable -->
+    <bool name="config_hwKeysPref">false</bool>
 
 </resources>
