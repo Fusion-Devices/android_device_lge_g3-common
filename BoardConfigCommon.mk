@@ -49,12 +49,23 @@ TARGET_KERNEL_SOURCE := kernel/lge/g3
 # Fusion Optimizations
 FUSION_OPT=true
 FUSION_O3 := true
-FUSION_STRICT := false
+FUSION_STRICT := true
 FUSION_KRAIT := true
 FUSION_GRAPHITE := true
-FUSION_PIPE := false
+FUSION_PIPE := true
+FUSION_ENABLE_GCCONLY := true
+FLOOP_NEST_OPTIMIZE := true
 TARGET_FUSION_ROM := 4.9
 TARGET_FUSION_KERNEL := 4.9-sm
+
+# Enable dex-preoptimization to speed up first boot sequence
+#ifeq ($(HOST_OS),linux)
+#  ifeq ($(TARGET_BUILD_VARIANT),userdebug)
+#    ifeq ($(WITH_DEXPREOPT),)
+#      WITH_DEXPREOPT := true
+#    endif
+#  endif
+#endif
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
@@ -185,3 +196,6 @@ TW_CRYPTO_KEY_LOC := "footer"
 TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/msm_hsusb/gadget/lun0/file
 TARGET_USERIMAGES_USE_F2FS := true
+
+#SaberMod
+-include vendor/fusion/config/sm.mk
