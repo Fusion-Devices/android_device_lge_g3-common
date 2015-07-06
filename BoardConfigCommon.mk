@@ -50,6 +50,7 @@ TARGET_KERNEL_SOURCE := kernel/lge/g3
 FUSION_OPT=true
 FUSION_O3 := true
 FUSION_STRICT := true
+FUSION_OFAST := true
 FUSION_KRAIT := true
 FUSION_GRAPHITE := true
 FUSION_PIPE := true
