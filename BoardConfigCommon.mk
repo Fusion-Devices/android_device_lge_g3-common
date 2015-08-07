@@ -58,7 +58,7 @@ FUSION_ENABLE_GCCONLY := true
 FLOOP_NEST_OPTIMIZE := true
 FUSION_FFAST_MATH := true
 TARGET_FUSION_ROM := 4.9
-TARGET_FUSION_KERNEL := 4.9-sm
+TARGET_FUSION_KERNEL := 5.2-sm
 
 # Enable dex-preoptimization to speed up first boot sequence
 #ifeq ($(HOST_OS),linux)
